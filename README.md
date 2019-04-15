@@ -1,5 +1,13 @@
 # Mastery HandleBars
 
+## Next
+```sh
+yarn add handlebars-helpers --save
+yarn add template-helpers --save
+# What is the difference between the two?
+```
+
+# X
 ## Simple Handlebars example
 
 ```javascript
