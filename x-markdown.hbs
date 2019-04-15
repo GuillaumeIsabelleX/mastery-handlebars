@@ -1,0 +1,55 @@
+//@STCGoal A File in which you can put Javascript
+//@v That we visually can have Handlebars Specific Helper Editor experience
+
+//import
+var h = require('handlebars');
+
+h.registerHelper('markdown', require('helper-markdown'));
+
+
+//-------------------------------------------
+//@STCGoal Use Markdown in your Code to Render it as HTML 
+
+//Handlebars sources
+var code = `
+<div>
+<h1>{{title}}</h1>
+<p>{{description}}</p>
+
+<hr>Using Markdown handlebars-helper<hr>
+
+{{#markdown}}
+# Title Something
+---
+* Points a
+* Point b
+
+## Facts
+* I love the fact that you can write and see it formatted accordingly into the HBS :)
+
+{{/markdown}}
+
+</div>
+`;
+
+
+
+//Data structure with values
+var data =  {
+  title : "Hello world",
+  md: `
+  # My Title
+  Someting about...
+  ## Sub title
+  * points
+  * points 2
+  `,
+  description: "Hello world is a common Magna cillum consequat incididunt laboris nisi voluptate fugiat id voluptate incididunt.",
+  peoples:[{name:"Guillaume",note:"main scientist and artist"},{name:"Peter Pan",note:"ficticious caracter"}]
+};
+
+
+  var template = h.compile(code);
+
+
+  console.log(template(data.md));
